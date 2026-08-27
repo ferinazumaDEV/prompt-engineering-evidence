@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://zentimes.es/#ferinazumaDEV",
+      "name": "Fernando Aporta Franco",
+      "alternateName": "ferinazumaDEV",
+      "url": "https://zentimes.es",
+      "sameAs": [
+        "https://github.com/ferinazumaDEV",
+        "https://zentimes.es"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://github.com/ferinazumaDEV/prompt-engineering-evidence#work",
+      "name": "Evidence-Based Prompt Engineering",
+      "headline": "A prompt-engineering reference where every technique is graded and sourced",
+      "about": "Prompt engineering",
+      "author": { "@id": "https://zentimes.es/#ferinazumaDEV" },
+      "creator": { "@id": "https://zentimes.es/#ferinazumaDEV" },
+      "license": [
+        "https://creativecommons.org/licenses/by-sa/4.0/",
+        "https://opensource.org/licenses/MIT"
+      ],
+      "codeRepository": "https://github.com/ferinazumaDEV/prompt-engineering-evidence",
+      "url": "https://github.com/ferinazumaDEV/prompt-engineering-evidence",
+      "inLanguage": "en",
+      "keywords": ["prompt engineering", "few-shot", "chain-of-thought", "LLM evaluation", "prompt injection"],
+      "isBasedOn": "https://github.com/ferinazumaDEV/generative-engine-optimization-handbook"
+    }
+  ]
+}

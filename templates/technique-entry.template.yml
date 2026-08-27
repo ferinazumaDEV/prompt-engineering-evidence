@@ -1,0 +1,14 @@
+# Template for a new entry in ../data/techniques.yml
+# Copy this block, fill EVERY field, and open a PR.
+# Hard rule (see ../CONTRIBUTING.md): no grade + no primary source = no merge.
+
+- id: my-technique-slug            # kebab-case, unique across the ledger
+  name: "Human-readable name"
+  grade: mixed                     # one of: solid | mixed | folklore
+  claim: "One sentence: what this technique is supposed to do."
+  when_to_use: "The situation where it actually helps."
+  grade_rationale: "Why this grade — what the evidence does and does not show."
+  primary_sources:                 # at least one; arXiv / DOI / official docs
+    - "https://arxiv.org/abs/XXXX.XXXXX"
+  last_verified: "YYYY-MM-DD"      # when you last checked the sources still hold
+  see: []                          # optional: relative links into ../docs/

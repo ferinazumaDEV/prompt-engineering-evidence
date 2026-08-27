@@ -16,7 +16,7 @@
   primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183"]
   reproducible: yes-llm
   last_verified: 2026-08-27
-  see: docs/02-reasoning.md#chain-of-thought
+  see: docs/08-technique-selector.md
 
 - id: few-shot-examples
   question: "Do few-shot examples help, and how many should I use?"
@@ -28,7 +28,7 @@
   primary_sources: ["Brown et al. 2020 - arXiv:2005.14165", "Lu et al. 2021 (order sensitivity) - arXiv:2104.08786"]
   reproducible: yes-offline
   last_verified: 2026-08-27
-  see: docs/01-fundamentals-anatomy.md#few-shot
+  see: docs/08-technique-selector.md
 
 - id: data-before-instruction
   question: "In a long prompt, where do the data and the question go?"
@@ -39,7 +39,7 @@
   primary_sources: ["Liu et al. 2023 (Lost in the Middle) - arXiv:2307.03172", "Anthropic prompt engineering docs"]
   reproducible: paper-only
   last_verified: 2026-08-27
-  see: docs/01-fundamentals-anatomy.md#position
+  see: docs/08-technique-selector.md
 
 - id: self-consistency
   question: "Does sampling multiple chains and majority-voting help?"
@@ -51,7 +51,7 @@
   primary_sources: ["Wang et al. 2022 (Self-Consistency) - arXiv:2203.11171"]
   reproducible: yes-llm
   last_verified: 2026-08-27
-  see: docs/02-reasoning.md#self-consistency
+  see: docs/08-technique-selector.md
 
 - id: take-a-deep-breath
   question: "Do motivational tips like 'take a deep breath' work?"
@@ -88,4 +88,4 @@
   primary_sources: ["Anthropic / OpenAI prompting guides", "vendor best-practice docs"]
   reproducible: no
   last_verified: 2026-08-27
-  see: docs/01-fundamentals-anatomy.md#positive-instructions
+  see: docs/08-technique-selector.md

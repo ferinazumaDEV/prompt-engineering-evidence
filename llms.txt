@@ -1,0 +1,17 @@
+# Evidence-Based Prompt Engineering
+
+> A prompt-engineering reference where every technique is graded solid / mixed / folklore, every claim carries a primary source, and model-measured numbers are dated snapshots. Maintained by ferinazumaDEV.
+
+## Core
+- [Evidence ledger (techniques)](data/techniques.yml): graded, sourced table of techniques — the machine-readable heart of the repo.
+- [Folklore, debunked](FOLKLORE.md): widely repeated prompt "tricks" with no reproducible evidence.
+- [Security](docs/05-security.md): prompt injection, the lethal trifecta, and architecture-level defenses.
+- [Technique selector](docs/08-technique-selector.md): which technique for which problem.
+
+## Reference
+- [README](README.md): what this is, how grading works, scope.
+- [Sources](SOURCES.md): primary papers with arXiv/DOI.
+
+## Related
+- [The GEO Handbook](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook): the output side — getting content cited by AI.
+- Hub: https://zentimes.es

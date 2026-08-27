@@ -1,0 +1,57 @@
+name: Validate evidence ledger
+
+# The rigor is enforced by CI: every technique must carry a grade, at least one
+# primary source, and an ISO date. A PR that adds an ungraded/unsourced claim fails.
+
+on:
+  push:
+    branches: [main]
+    paths: ['data/**']
+  pull_request:
+    paths: ['data/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install --quiet pyyaml
+      - name: Every entry has grade + primary_sources + last_verified
+        run: |
+          python3 - <<'PY'
+          import sys, datetime, yaml
+          REQUIRED = ["id", "question", "grade", "primary_sources", "last_verified"]
+          GRADES = {"solid", "mixed", "folklore"}
+          errors = []
+          with open("data/techniques.yml") as f:
+              entries = yaml.safe_load(f) or []
+          if not isinstance(entries, list):
+              print("techniques.yml must be a list of entries"); sys.exit(1)
+          for i, e in enumerate(entries):
+              tag = e.get("id", f"entry #{i}")
+              for k in REQUIRED:
+                  if not e.get(k):
+                      errors.append(f"{tag}: missing '{k}'")
+              if e.get("grade") not in GRADES:
+                  errors.append(f"{tag}: grade must be one of {sorted(GRADES)}, got {e.get('grade')!r}")
+              ps = e.get("primary_sources")
+              if not isinstance(ps, list) or not ps:
+                  errors.append(f"{tag}: primary_sources must be a non-empty list")
+              try:
+                  datetime.date.fromisoformat(str(e.get("last_verified", "")))
+              except ValueError:
+                  errors.append(f"{tag}: last_verified must be an ISO date (YYYY-MM-DD)")
+          if errors:
+              print("Ledger validation FAILED:")
+              for x in errors:
+                  print("  -", x)
+              sys.exit(1)
+          print(f"Ledger OK: {len(entries)} entries, all graded, sourced and dated.")
+          PY

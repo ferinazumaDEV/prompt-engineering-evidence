@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "Evidence-Based Prompt Engineering"
+message: "If you use this reference, please cite it."
+type: dataset
+authors:
+  - family-names: "Aporta Franco"
+    given-names: "Fernando"
+    alias: ferinazumaDEV
+repository-code: "https://github.com/ferinazumaDEV/prompt-engineering-evidence"
+url: "https://zentimes.es"
+license: CC-BY-SA-4.0
+keywords:
+  - prompt engineering
+  - large language models
+  - evidence-based
+  - prompt injection
+  - LLM evaluation

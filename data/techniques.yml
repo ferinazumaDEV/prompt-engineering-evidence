@@ -1,0 +1,91 @@
+# The evidence ledger — one row per technique. This is the heart of the repo.
+#
+# grade:        solid | mixed | folklore
+# reproducible: yes-offline | yes-llm | paper-only | no
+#
+# Every row MUST have: grade, primary_sources, last_verified. CI enforces it.
+# Model-measured effects are dated SNAPSHOTS, never eternal truths.
+
+- id: chain-of-thought
+  question: "Does chain-of-thought actually improve accuracy?"
+  grade: mixed
+  scope: "math / logic / symbolic multi-step tasks; NOT knowledge/reading; largely redundant on reasoning models"
+  effect: "Large gains on GSM8K-style arithmetic; roughly none on tasks that don't need intermediate steps"
+  when_use: ["multi-step arithmetic", "code with state", "constraint satisfaction"]
+  when_not: ["single-inference lookup", "reasoning models (o-series / R1) — often redundant or harmful"]
+  primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183"]
+  reproducible: yes-llm
+  last_verified: 2026-08-27
+  see: docs/02-reasoning.md#chain-of-thought
+
+- id: few-shot-examples
+  question: "Do few-shot examples help, and how many should I use?"
+  grade: solid
+  scope: "format/style conditioning and classification; example order and selection matter a lot"
+  effect: "Reliable for shaping output format; example ORDER alone can swing accuracy by tens of points"
+  when_use: ["enforce an output format", "classification with fuzzy labels"]
+  when_not: ["when a clear instruction + schema already works (examples cost tokens)"]
+  primary_sources: ["Brown et al. 2020 - arXiv:2005.14165", "Lu et al. 2021 (order sensitivity) - arXiv:2104.08786"]
+  reproducible: yes-offline
+  last_verified: 2026-08-27
+  see: docs/01-fundamentals-anatomy.md#few-shot
+
+- id: data-before-instruction
+  question: "In a long prompt, where do the data and the question go?"
+  grade: solid
+  scope: "long multi-document inputs (~20k+ tokens)"
+  effect: "Put long data FIRST and the query LAST; improves quality (Anthropic reports up to ~30%). Relates to 'lost in the middle'."
+  when_use: ["RAG over many documents", "summarizing/QA over long context"]
+  primary_sources: ["Liu et al. 2023 (Lost in the Middle) - arXiv:2307.03172", "Anthropic prompt engineering docs"]
+  reproducible: paper-only
+  last_verified: 2026-08-27
+  see: docs/01-fundamentals-anatomy.md#position
+
+- id: self-consistency
+  question: "Does sampling multiple chains and majority-voting help?"
+  grade: solid
+  scope: "reasoning tasks with a checkable/aggregatable answer; costs N times more tokens"
+  effect: "Sample several CoT paths, take the majority answer; consistent accuracy gains on reasoning benchmarks"
+  when_use: ["high-stakes reasoning where extra cost is acceptable"]
+  when_not: ["open-ended generation", "cost/latency-sensitive paths"]
+  primary_sources: ["Wang et al. 2022 (Self-Consistency) - arXiv:2203.11171"]
+  reproducible: yes-llm
+  last_verified: 2026-08-27
+  see: docs/02-reasoning.md#self-consistency
+
+- id: take-a-deep-breath
+  question: "Do motivational tips like 'take a deep breath' work?"
+  grade: folklore
+  scope: "none general — an OPRO-discovered optimum for PaLM-2-L that does NOT transfer across models"
+  primary_sources: ["Yang et al. 2023 (OPRO) - arXiv:2309.03409"]
+  reproducible: paper-only
+  last_verified: 2026-08-27
+  see: FOLKLORE.md#deep-breath
+
+- id: temperature-zero-determinism
+  question: "Does temperature 0 make the model deterministic?"
+  grade: folklore
+  scope: "none — temp 0 reduces but does not guarantee determinism (batching, MoE routing, hardware nondeterminism remain)"
+  primary_sources: ["OpenAI / Anthropic sampling docs", "widely reported reproducibility findings"]
+  reproducible: no
+  last_verified: 2026-08-27
+  see: FOLKLORE.md#temperature-zero
+
+- id: threats-and-tips
+  question: "Do threats or offering money/tips improve responses?"
+  grade: folklore
+  scope: "none reproducible — anecdotal, model- and version-specific, does not survive model updates"
+  primary_sources: ["no reproducible primary source; see FOLKLORE.md for the trail"]
+  reproducible: no
+  last_verified: 2026-08-27
+  see: FOLKLORE.md#threats-tips
+
+- id: positive-over-negative-instructions
+  question: "Should I tell the model what to do instead of what not to do?"
+  grade: mixed
+  scope: "instruction-following; the real issue is under-specification, not the model 'ignoring negatives'"
+  effect: "Stating the desired behavior positively tends to generalize better than a list of prohibitions"
+  primary_sources: ["Anthropic / OpenAI prompting guides", "vendor best-practice docs"]
+  reproducible: no
+  last_verified: 2026-08-27
+  see: docs/01-fundamentals-anatomy.md#positive-instructions

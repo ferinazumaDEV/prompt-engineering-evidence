@@ -35,7 +35,7 @@ This repository ships a [`CITATION.cff`](CITATION.cff), so GitHub shows a **"Cit
 
 ## License
 
-Prose is **CC BY-SA 4.0** ([`LICENSE`](LICENSE)); the ledger (`data/`) and templates are **CC BY 4.0**; code (`experiments/`, scripts, `.github/`) is **MIT** ([`LICENSE-CODE`](LICENSE-CODE)). In short: build on the code freely, credit the words.
+Prose is **CC BY-SA 4.0** ([`LICENSE`](LICENSE)); the ledger (`data/`) and templates are **CC BY 4.0**; code (`experiments/`, scripts, `.github/`) is **MIT** ([`LICENSES/MIT.txt`](LICENSES/MIT.txt)). In short: build on the code freely, credit the words.
 
 ---
 <!-- ecosystem:start -->

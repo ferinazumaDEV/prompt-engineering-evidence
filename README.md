@@ -27,6 +27,12 @@ This is a **reference**, not a beginner tutorial (see [learnprompting.org](https
 
 [GEO (Generative Engine Optimization)](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook) is about making *content* legible so machines **cite** it (the output side). Prompt engineering is about making *instructions* so machines **execute** them well (the input side). Two sides of one discipline: making content and systems legible to machines.
 
+## How to cite
+
+This repository ships a [`CITATION.cff`](CITATION.cff), so GitHub shows a **"Cite this repository"** button (APA and BibTeX) in the sidebar. Plain-text form:
+
+> Aporta Franco, F. (2026). *Evidence-Based Prompt Engineering* [Data set]. https://github.com/ferinazumaDEV/prompt-engineering-evidence. Hub: https://zentimes.es
+
 ## License
 
 Prose is **CC BY-SA 4.0** ([`LICENSE`](LICENSE)); the ledger (`data/`) and templates are **CC BY 4.0**; code (`experiments/`, scripts, `.github/`) is **MIT** ([`LICENSE-CODE`](LICENSE-CODE)). In short: build on the code freely, credit the words.

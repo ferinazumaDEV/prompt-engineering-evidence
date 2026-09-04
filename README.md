@@ -41,7 +41,7 @@ Every entry names its **primary sources**, its **scope** (where it applies and w
 
 ## Scope (honest)
 
-This is a **reference**, not a beginner tutorial (see [learnprompting.org](https://learnprompting.org)) and not a copy-paste prompt library. Experiments are **illustrative** (10–30 cases), not heavy benchmarks. The point is *signal, sourced* — not volume.
+This is a **reference**, not a beginner tutorial (see [learnprompting.org](https://learnprompting.org)) and not a copy-paste prompt library. One experiment ships today — the offline [token-cost measurement](experiments/offline/token-cost/) for few-shot examples — and future experiments will be **illustrative** (10–30 cases), not heavy benchmarks. The point is *signal, sourced* — not volume.
 
 ## How this relates to GEO
 

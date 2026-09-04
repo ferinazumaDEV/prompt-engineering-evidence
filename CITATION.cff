@@ -8,10 +8,16 @@ authors:
     alias: ferinazumaDEV
 repository-code: "https://github.com/ferinazumaDEV/prompt-engineering-evidence"
 url: "https://zentimes.es"
-license:
-  - CC-BY-SA-4.0
-  - CC-BY-4.0
-  - MIT
+# ONE license id here, deliberately. This repository IS multi-licensed — prose
+# CC BY-SA 4.0 (root LICENSE), the ledger under data/ and the templates CC BY 4.0,
+# code MIT (LICENSES/MIT.txt) — and README.md is where that is stated. Do not
+# restore the list. This file is what Zenodo reads to archive a release, and its
+# deposit format takes a single license id: a YAML list here converts to
+# {"id": ["CC-BY-SA-4.0", "CC-BY-4.0", "MIT"]}, Zenodo rejects the deposit, and the
+# release is archived as Failed with no DOI minted. That is not a guess — it is what
+# happened to the cookbook's v0.1.0 on 4 Sep 2026, reproduced with cffconvert 2.0.0.
+# Keep this value equal to the root LICENSE, which is also what GitHub detects.
+license: CC-BY-SA-4.0
 keywords:
   - prompt engineering
   - large language models

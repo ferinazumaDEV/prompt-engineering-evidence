@@ -2,6 +2,22 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22307826.svg)](https://doi.org/10.5281/zenodo.22307826)
 
+## GEO ID Card
+
+| Field | Value |
+|---|---|
+| **What** | Dataset — Evidence-Based Prompt Engineering |
+| **Who** | Fernando Aporta Franco (ferinazumaDEV) — https://github.com/ferinazumaDEV · https://zentimes.es |
+| **Claims** | A prompt-engineering reference in which every technique is graded solid, mixed or folklore, and every claim names a primary source. The evidence lives in a machine-readable ledger. This first release grades eight techniques (three solid, two mixed, three folklore) and ships one offline reproducible experiment; it is a sourced starting corpus, not an exhaustive survey. Effects that can only be measured with live model calls are recorded as dated snapshots against a named model, never as standing truths. |
+| **Based on** | https://github.com/ferinazumaDEV/generative-engine-optimization-handbook |
+| **Sources** | [`SOURCES.md`](SOURCES.md) |
+| **Cite** | [`CITATION.cff`](CITATION.cff) · DOI [10.5281/zenodo.22307826](https://doi.org/10.5281/zenodo.22307826) |
+| **Canonical** | https://github.com/ferinazumaDEV/prompt-engineering-evidence |
+| **Updated** | 2026-09-04 |
+| **Version** | 0.1.0 (Release v0.1.0) |
+| **Maturity** | mixed overall — 3 established (ledger alias `solid`) · 2 mixed · 3 folklore; reproducible: partial — 1 yes-offline · 2 yes-llm · 2 paper-only · 3 no. See [`CLAIMS.md`](CLAIMS.md). |
+| **License** | CC BY-SA 4.0 prose · CC BY 4.0 data/templates · MIT code |
+
 **A prompt-engineering reference where every technique is graded `solid` / `mixed` / `folklore`, every claim carries a primary source, and the numbers are dated and current to 2026 reasoning models.** Most guides list techniques without telling you which ones actually work. This one grades them, sources them, and marks the myths as myths.
 
 > The evidence for every technique lives in a machine-readable ledger — [`data/techniques.yml`](data/techniques.yml). Ask *"does technique X actually work?"* and get a graded, sourced answer — the same question an AI answer engine asks.
@@ -11,6 +27,8 @@
 - **`solid`** — reproducible effect with primary-source evidence (papers/benchmarks) and a stated scope.
 - **`mixed`** — helps under some conditions, not others; the *scope* matters more than the technique.
 - **`folklore`** — widely repeated, no reproducible evidence, or actively debunked. See [`FOLKLORE.md`](FOLKLORE.md).
+
+`solid` is the ledger's alias for `established` — see [`CLAIMS.md`](CLAIMS.md) for the full vocabulary (including `experimental`) and the register of claims that have no ledger row yet.
 
 Every entry names its **primary sources**, its **scope** (where it applies and where it doesn't), and — where testable — a **reproducible experiment**. Where an effect can only be measured with live model calls, we treat the number as a **dated snapshot** (*"as of DATE on MODEL"*), never as an eternal truth.
 

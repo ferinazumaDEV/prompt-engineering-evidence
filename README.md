@@ -43,5 +43,5 @@ Prose is **CC BY-SA 4.0** ([`LICENSE`](LICENSE)); the ledger (`data/`) and templ
 
 ---
 <!-- ecosystem:start -->
-Part of the **ferinazumaDEV** ecosystem — flagship: **[The GEO Handbook](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook)**. Siblings: [structllm](https://github.com/ferinazumaDEV/structllm) · [notebooklm-kb-system](https://github.com/ferinazumaDEV/notebooklm-kb-system). Hub: [zentimes.es](https://zentimes.es). By [ferinazumaDEV](https://github.com/ferinazumaDEV).
+Part of the **ferinazumaDEV** ecosystem — flagship: **[The GEO Handbook](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook)**. Siblings: [typedout](https://github.com/ferinazumaDEV/typedout) · [notebooklm-kb-system](https://github.com/ferinazumaDEV/notebooklm-kb-system). Hub: [zentimes.es](https://zentimes.es). By [ferinazumaDEV](https://github.com/ferinazumaDEV).
 <!-- ecosystem:end -->

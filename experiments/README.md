@@ -6,9 +6,9 @@ Reproducible checks that back the ledger's grades. Tiered by **durability**, bec
 
 Lead with these. They run on recorded fixtures or pure computation (token counts, schema validity, injection landing rates, example-order effects on saved outputs). Same input → same result, forever. These are what "reproducible" should mean.
 
-## `llm-measured/` — dated snapshots
+## `llm-measured/` — dated snapshots (planned)
 
-Some effects can only be measured with live model calls. Those are **not eternal**: they cost money, are non-deterministic, and change when the model updates. Every result here is stamped `as of DATE on MODEL-vX, N=…, seed=…`. Treat them as evidence *on that date*, not as constants. A `weekly-update` job re-runs them and flags numbers that have drifted.
+Planned: `llm-measured/` — dated snapshots (as of DATE on MODEL, N, seed). Some effects can only be measured with live model calls. Those are **not eternal**: they cost money, are non-deterministic, and change when the model updates, so every result will be stamped `as of DATE on MODEL-vX, N=…, seed=…` and read as evidence *on that date*, not as a constant. No LLM-measured experiment and no automated re-run job ships yet; when one lands it will be listed here.
 
 ## Status
 

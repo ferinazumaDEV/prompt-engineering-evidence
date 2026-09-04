@@ -28,7 +28,9 @@
       "url": "https://github.com/ferinazumaDEV/prompt-engineering-evidence",
       "inLanguage": "en",
       "keywords": ["prompt engineering", "few-shot", "chain-of-thought", "LLM evaluation", "prompt injection"],
-      "isBasedOn": "https://github.com/ferinazumaDEV/generative-engine-optimization-handbook"
+      "isBasedOn": "https://github.com/ferinazumaDEV/generative-engine-optimization-handbook",
+      "identifier": "https://doi.org/10.5281/zenodo.22307826",
+      "sameAs": ["https://doi.org/10.5281/zenodo.22307826"]
     }
   ]
 }

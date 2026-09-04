@@ -9,6 +9,7 @@
 - [Technique selector](docs/08-technique-selector.md): which technique for which problem.
 
 ## Reference
+- [Archived releases (Zenodo)](https://doi.org/10.5281/zenodo.22307826): every tagged release archived with a DOI; this concept DOI always resolves to the latest one. Cite this rather than the repository URL.
 - [README](README.md): what this is, how grading works, scope.
 - [Sources](SOURCES.md): primary papers with arXiv/DOI.
 

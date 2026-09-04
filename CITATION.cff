@@ -8,6 +8,13 @@ authors:
     alias: ferinazumaDEV
 repository-code: "https://github.com/ferinazumaDEV/prompt-engineering-evidence"
 url: "https://zentimes.es"
+# Concept DOI: resolves to the latest archived release, so it does not change when a new
+# version is tagged. Version DOIs live on the Zenodo record page, not here.
+doi: "10.5281/zenodo.22307826"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22307826"
+    description: "Concept DOI — always the latest version"
 abstract: >-
   A prompt-engineering reference in which every technique is graded solid, mixed or
   folklore, and every claim names a primary source. The evidence lives in a

@@ -1,5 +1,7 @@
 # Evidence-Based Prompt Engineering
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22307826.svg)](https://doi.org/10.5281/zenodo.22307826)
+
 **A prompt-engineering reference where every technique is graded `solid` / `mixed` / `folklore`, every claim carries a primary source, and the numbers are dated and current to 2026 reasoning models.** Most guides list techniques without telling you which ones actually work. This one grades them, sources them, and marks the myths as myths.
 
 > The evidence for every technique lives in a machine-readable ledger — [`data/techniques.yml`](data/techniques.yml). Ask *"does technique X actually work?"* and get a graded, sourced answer — the same question an AI answer engine asks.
@@ -29,9 +31,11 @@ This is a **reference**, not a beginner tutorial (see [learnprompting.org](https
 
 ## How to cite
 
-This repository ships a [`CITATION.cff`](CITATION.cff), so GitHub shows a **"Cite this repository"** button (APA and BibTeX) in the sidebar. Plain-text form:
+Every tagged release is archived on Zenodo with a DOI. Cite the **concept DOI** — it always resolves to the latest release. Each release also carries its own version DOI, on its own record page, if you need to pin one exact state of the ledger.
 
-> Aporta Franco, F. (2026). *Evidence-Based Prompt Engineering* [Data set]. https://github.com/ferinazumaDEV/prompt-engineering-evidence. Hub: https://zentimes.es
+> Aporta Franco, F. (2026). *Evidence-Based Prompt Engineering* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.22307826
+
+The same metadata lives in [`CITATION.cff`](CITATION.cff), which GitHub renders as the **"Cite this repository"** button (APA and BibTeX) in the sidebar.
 
 ## License
 

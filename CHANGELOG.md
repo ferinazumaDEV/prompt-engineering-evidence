@@ -16,6 +16,13 @@ its date.
 
 ## [Unreleased]
 
+### Added
+
+- **DOI.** `v0.1.0` is archived on Zenodo, so the ledger is citable by a persistent
+  identifier instead of a repository URL. The concept DOI
+  [`10.5281/zenodo.22307826`](https://doi.org/10.5281/zenodo.22307826) always resolves to the latest release. Recorded in the
+  README badge and citation, `CITATION.cff`, `about.jsonld` and `llms.txt`.
+
 ## [0.1.0] — 2026-09-04
 
 First tagged state of the corpus.

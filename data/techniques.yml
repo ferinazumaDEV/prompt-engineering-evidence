@@ -1,7 +1,8 @@
 # The evidence ledger — one row per technique. This is the heart of the repo.
 #
 # grade:        solid | mixed | folklore
-# reproducible: yes-offline | yes-llm | paper-only | no
+# reproducible: yes-offline | yes-llm | paper-only | "no"   — always a string; quote "no",
+#               or a YAML 1.1 loader (PyYAML, which CI uses) reads it as boolean false
 #
 # Every row MUST have: grade, primary_sources, last_verified. CI enforces it.
 # Model-measured effects are dated SNAPSHOTS, never eternal truths.
@@ -12,17 +13,17 @@
   scope: "math / logic / symbolic multi-step tasks; NOT knowledge/reading; largely redundant on reasoning models"
   effect: "Large gains on GSM8K-style arithmetic; roughly none on tasks that don't need intermediate steps"
   when_use: ["multi-step arithmetic", "code with state", "constraint satisfaction"]
-  when_not: ["single-inference lookup", "reasoning models (o-series / R1) — often redundant or harmful"]
-  primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183"]
+  when_not: ["single-inference lookup", "reasoning models (o-series) — marginal or no gain, more tokens (Meincke et al. 2025); OpenAI says it can sometimes hinder"]
+  primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183", "Meincke et al. 2025 (Prompting Science Report 2) - arXiv:2506.07142", "OpenAI, Reasoning best practices: https://developers.openai.com/api/docs/guides/reasoning-best-practices"]
   reproducible: yes-llm
-  last_verified: 2026-08-27
+  last_verified: 2026-09-04
   see: docs/08-technique-selector.md
 
 - id: few-shot-examples
   question: "Do few-shot examples help, and how many should I use?"
   grade: solid
   scope: "format/style conditioning and classification; example order and selection matter a lot"
-  effect: "Reliable for shaping output format; example ORDER alone can swing accuracy by tens of points"
+  effect: "Reliable for shaping output format; on GPT-2/GPT-3-class models (2021) example ORDER alone swung accuracy from near-SOTA to chance (Lu et al.); magnitude on current instruction-tuned models not re-measured here"
   when_use: ["enforce an output format", "classification with fuzzy labels"]
   when_not: ["when a clear instruction + schema already works (examples cost tokens)"]
   primary_sources: ["Brown et al. 2020 - arXiv:2005.14165", "Lu et al. 2021 (order sensitivity) - arXiv:2104.08786"]
@@ -34,11 +35,11 @@
   question: "In a long prompt, where do the data and the question go?"
   grade: solid
   scope: "long multi-document inputs (~20k+ tokens)"
-  effect: "Put long data FIRST and the query LAST; improves quality (Anthropic reports up to ~30%). Relates to 'lost in the middle'."
+  effect: "Put long data FIRST and the query LAST; improves quality (Anthropic reports up to 30 percent in its own tests, on complex multi-document inputs). Relates to 'lost in the middle'."
   when_use: ["RAG over many documents", "summarizing/QA over long context"]
-  primary_sources: ["Liu et al. 2023 (Lost in the Middle) - arXiv:2307.03172", "Anthropic prompt engineering docs"]
+  primary_sources: ["Liu et al. 2023 (Lost in the Middle) - arXiv:2307.03172", "Anthropic, Claude prompting best practices — Long context prompting: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting"]
   reproducible: paper-only
-  last_verified: 2026-08-27
+  last_verified: 2026-09-04
   see: docs/08-technique-selector.md
 
 - id: self-consistency
@@ -66,18 +67,18 @@
   question: "Does temperature 0 make the model deterministic?"
   grade: folklore
   scope: "none — temp 0 reduces but does not guarantee determinism (batching, MoE routing, hardware nondeterminism remain)"
-  primary_sources: ["OpenAI / Anthropic sampling docs", "widely reported reproducibility findings"]
-  reproducible: no
-  last_verified: 2026-08-27
+  primary_sources: ["Anthropic Messages API reference (temperature): https://platform.claude.com/docs/en/api/messages — 'even with temperature of 0.0, the results will not be fully deterministic'", "OpenAI Cookbook, Reproducible outputs with the seed parameter — documents that determinism is 'not guaranteed' even with seed: https://developers.openai.com/cookbook/examples/reproducible_outputs_with_the_seed_parameter", "He, H. and Thinking Machines Lab (2025), Defeating Nondeterminism in LLM Inference (batch invariance): https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/"]
+  reproducible: "no"
+  last_verified: 2026-09-04
   see: FOLKLORE.md#temperature-zero
 
 - id: threats-and-tips
   question: "Do threats or offering money/tips improve responses?"
   grade: folklore
   scope: "none reproducible — anecdotal, model- and version-specific, does not survive model updates"
-  primary_sources: ["no reproducible primary source; see FOLKLORE.md for the trail"]
-  reproducible: no
-  last_verified: 2026-08-27
+  primary_sources: ["Meincke et al. 2025 (Prompting Science Report 3: threats and tips) - arXiv:2508.00614", "Bsharat et al. 2023 (origin of the tipping principle) - arXiv:2312.16171"]
+  reproducible: "no"
+  last_verified: 2026-09-04
   see: FOLKLORE.md#threats-tips
 
 - id: positive-over-negative-instructions
@@ -85,7 +86,7 @@
   grade: mixed
   scope: "instruction-following; the real issue is under-specification, not the model 'ignoring negatives'"
   effect: "Stating the desired behavior positively tends to generalize better than a list of prohibitions"
-  primary_sources: ["Anthropic / OpenAI prompting guides", "vendor best-practice docs"]
-  reproducible: no
-  last_verified: 2026-08-27
+  primary_sources: ["Anthropic, Claude prompting best practices — Be clear and direct ('tell Claude what to do instead of what not to do'): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct", "OpenAI Help Center, Best practices for prompt engineering with the OpenAI API (rule: 'Instead of just saying what not to do, say what to do instead'): https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api — needs-verification (returns 403 to curl)"]
+  reproducible: "no"
+  last_verified: 2026-09-04
   see: docs/08-technique-selector.md

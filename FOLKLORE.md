@@ -17,14 +17,14 @@ Prompt "tricks" that circulate widely with no reproducible evidence — or that 
 
 **Claim:** threatening the model, offering it $200, or claiming stakes improves output.
 **Why it spread:** viral screenshots and single-run anecdotes; occasionally a real but tiny, non-reproducible bump on one model version.
-**Evidence:** no reproducible primary source shows a consistent effect; results are anecdotal, model- and version-specific, and vanish on model updates. Newer instruction-tuned models are largely flat to it.
+**Evidence:** a controlled study (Meincke et al. 2025, Prompting Science Report 3, [arXiv:2508.00614](https://arxiv.org/abs/2508.00614)) finds no significant benchmark effect from tipping or threatening on GPQA / MMLU-Pro; per-question effects vary in both directions. Beyond that, results are anecdotal, model- and version-specific, and vanish on model updates. Newer instruction-tuned models are largely flat to it (same study). The tipping principle traces to Bsharat et al. 2023 ([arXiv:2312.16171](https://arxiv.org/abs/2312.16171)).
 **Verdict:** **folklore.** Spend the tokens on clear instructions and examples instead.
 
 ## <a id="temperature-zero"></a> "Temperature 0 makes the model deterministic"
 
 **Claim:** set temperature to 0 and you get identical output every time.
 **Why it spread:** temperature 0 *does* make sampling greedy, so it feels deterministic in small tests.
-**Evidence:** greedy sampling removes one source of randomness, but **not all of them**: batching, mixture-of-experts routing, floating-point/hardware nondeterminism, and provider-side changes can still vary the output. Vendors document that identical output is not guaranteed.
+**Evidence:** greedy sampling removes one source of randomness, but **not all of them**: batching, mixture-of-experts routing, floating-point/hardware nondeterminism, and provider-side changes can still vary the output. Vendors document that identical output is not guaranteed — Anthropic's [Messages API reference](https://platform.claude.com/docs/en/api/messages): *"even with `temperature` of `0.0`, the results will not be fully deterministic"*.
 **Verdict:** **folklore** (as an absolute). Temp 0 reduces variance; it does not guarantee determinism. For reproducibility, pin the model version and record outputs — don't assume.
 
 ## <a id="role-prompting"></a> "Assigning an expert role boosts accuracy"
@@ -32,7 +32,7 @@ Prompt "tricks" that circulate widely with no reproducible evidence — or that 
 **Claim:** "You are an expert mathematician" makes the model better at math.
 **Why it spread:** role prompts *do* shape tone, vocabulary, and format convincingly, so it feels like it must help correctness too.
 **Evidence:** persona/role prompts reliably affect *style*, but studies find little to no consistent effect on *accuracy* on objective tasks (see Zheng et al. 2024, "When 'A Helpful Assistant' Is Not Really Helpful", arXiv:2311.10054).
-**Verdict:** **mixed → folklore for accuracy.** Use roles to control voice and audience; do not expect them to fix reasoning. That's what evals and the right technique are for.
+**Verdict:** **folklore** (for accuracy; style effects are real). Use roles to control voice and audience; do not expect them to fix reasoning. That's what evals and the right technique are for.
 
 ## <a id="json-reasoning"></a> "Forcing JSON output is free"
 
@@ -46,7 +46,7 @@ Prompt "tricks" that circulate widely with no reproducible evidence — or that 
 **Claim:** wrapping everything in XML tags unlocks hidden performance.
 **Why it spread:** Anthropic *does* recommend XML tags, and they genuinely help.
 **Evidence:** they help because they **disambiguate structure** (which text is the data, which is the instruction), not because the model has a special XML mode. Any consistent, unambiguous delimiter achieves the same; XML is just a clean, common choice.
-**Verdict:** **useful, not magic.** Use delimiters for clarity; the win is structure, not the angle brackets.
+**Verdict:** **mixed** (delimiters help; XML-specific magic is folklore). Use delimiters for clarity; the win is structure, not the angle brackets.
 
 ---
 

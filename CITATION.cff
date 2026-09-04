@@ -8,6 +8,14 @@ authors:
     alias: ferinazumaDEV
 repository-code: "https://github.com/ferinazumaDEV/prompt-engineering-evidence"
 url: "https://zentimes.es"
+abstract: >-
+  A prompt-engineering reference in which every technique is graded solid, mixed or
+  folklore, and every claim names a primary source. The evidence lives in a
+  machine-readable ledger. This first release grades eight techniques (three solid,
+  two mixed, three folklore) and ships one offline reproducible experiment; it is a
+  sourced starting corpus, not an exhaustive survey. Effects that can only be
+  measured with live model calls are recorded as dated snapshots against a named
+  model, never as standing truths.
 # ONE license id here, deliberately. This repository IS multi-licensed — prose
 # CC BY-SA 4.0 (root LICENSE), the ledger under data/ and the templates CC BY 4.0,
 # code MIT (LICENSES/MIT.txt) — and README.md is where that is stated. Do not
@@ -24,3 +32,7 @@ keywords:
   - evidence-based
   - prompt injection
   - LLM evaluation
+# version and date-released must be bumped together with the git tag; the tag is the
+# source of truth, these two are the copy CFF requires.
+version: "0.1.0"
+date-released: "2026-09-04"

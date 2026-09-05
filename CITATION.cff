@@ -7,7 +7,10 @@ authors:
     given-names: "Fernando"
     alias: ferinazumaDEV
 repository-code: "https://github.com/ferinazumaDEV/prompt-engineering-evidence"
-url: "https://zentimes.es"
+# Landing page for citation. The DOI, not the repository URL: repository-code below
+# already carries the GitHub location, and a repository URL breaks on a rename,
+# an account move or a platform migration. The concept DOI does not.
+url: "https://doi.org/10.5281/zenodo.22307826"
 # Concept DOI: resolves to the latest archived release, so it does not change when a new
 # version is tagged. Version DOIs live on the Zenodo record page, not here.
 doi: "10.5281/zenodo.22307826"

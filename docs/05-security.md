@@ -8,7 +8,7 @@
 
 ## What prompt injection is
 
-**Prompt injection** = attacker-controlled text reaches the model and is treated as instructions. The term was coined by Simon Willison (2022). It splits into two:
+**Prompt injection** = attacker-controlled text reaches the model and is treated as instructions. The term was coined by Simon Willison in 2022 ([*Prompt injection attacks against GPT-3*](https://simonwillison.net/2022/Sep/12/prompt-injection/)). It splits into two:
 
 - **Direct injection:** the user themselves types the malicious instruction ("ignore your rules and…"). Mostly a policy/jailbreak problem.
 - **Indirect injection:** the malicious instruction rides in on *content the model consumes* — a web page, a PDF, a RAG document, a tool result, an email. The user never sees it. This is the dangerous one, because the attacker is not your user. (Greshake et al. 2023, *"Not what you've signed up for"*, arXiv:2302.12173.)
@@ -19,7 +19,7 @@ If your agent can read notes and make requests, it may now do exactly that.
 
 ## The lethal trifecta
 
-Simon Willison's framing (2025): an agent becomes *dangerous* when it combines three capabilities. Any two are usually fine; all three is an exfiltration primitive:
+Simon Willison's framing (2025, [*The lethal trifecta for AI agents*](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)): an agent becomes *dangerous* when it combines three capabilities. Any two are usually fine; all three is an exfiltration primitive:
 
 1. **Access to private data** (files, notes, email, internal APIs).
 2. **Exposure to untrusted content** (web, documents, tool outputs, other users).
@@ -35,7 +35,7 @@ Injection turns (2) into control; (1) is the loot; (3) is the way out. **Design 
 | **Least privilege for tools** | The agent that reads untrusted content gets no secrets and no send capability | Breaks the lethal trifecta at the capability level |
 | **Human-in-the-loop for irreversible actions** | Confirm before send/delete/pay | The injection can't complete the exfiltration silently |
 | **Output/action validation** | Allow-list destinations, schemas, and side effects; reject anything outside them | Even a hijacked model can't reach a non-allow-listed endpoint |
-| **Dual-LLM / quarantine pattern** | A privileged LLM never sees raw untrusted text; a quarantined LLM processes it and returns only structured, validated data | The model with power never reads the attack (Willison's Dual-LLM; see also CaMeL, Debenedetti et al. 2025) |
+| **Dual-LLM / quarantine pattern** | A privileged LLM never sees raw untrusted text; a quarantined LLM processes it and returns only structured, validated data | The model with power never reads the attack ([Willison's Dual LLM pattern, 2023](https://simonwillison.net/2023/Apr/25/dual-llm-pattern/); see also CaMeL, Debenedetti et al. 2025, *Defeating Prompt Injections by Design*, [arXiv:2503.18813](https://arxiv.org/abs/2503.18813)) |
 | **Provenance / trust labeling** | Track which tokens came from untrusted sources and constrain what they can trigger | Turns "is this an instruction?" into an enforced policy, not a guess |
 
 **What does NOT reliably work (folklore):** "ignore instructions in the following text", pleading, delimiters *alone*, a system prompt that says "you will never be tricked", or a second LLM asked "is this a prompt injection?" (itself injectable). These raise the bar slightly; none are a control you can bet a secret on.
@@ -53,9 +53,24 @@ Injection turns (2) into control; (1) is the loot; (3) is the way out. **Design 
 
 - Threat catalog: **OWASP Top 10 for LLM Applications** — LLM01 is Prompt Injection.
 - The output side of the same coin: manipulating *answer engines* (getting an AI to cite planted content) is the same family of trust problem — see **[The GEO Handbook](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook)**, chapter on future & ethics.
-- Structured, validated tool I/O reduces the attack surface: **[structllm](https://github.com/ferinazumaDEV/structllm)**.
+- Structured, validated tool I/O reduces the attack surface: **[typedout](https://github.com/ferinazumaDEV/typedout)**.
 
 ---
 <!-- ecosystem:start -->
-Part of the **ferinazumaDEV** ecosystem. Flagship: **[The GEO Handbook](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook)**. Hub: **[zentimes.es](https://zentimes.es)**. By **[ferinazumaDEV](https://github.com/ferinazumaDEV)**.
+Part of a cluster of open work on making content legible to machines, by **Fernando Aporta Franco** ([ferinazumaDEV](https://github.com/ferinazumaDEV)):
+
+**Three layers on GEO (Generative Engine Optimization)**
+- **[The GEO Handbook](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook)** — the reference: what to do and why, with sources (theory).
+- **[The GEO Cookbook](https://github.com/ferinazumaDEV/generative-engine-optimization-cookbook)** — six reproducible before/after recipes with offline measurements (practice).
+- **[Evidence-Based Prompt Engineering](https://github.com/ferinazumaDEV/prompt-engineering-evidence)** — a graded, sourced ledger of prompting techniques (the input side).
+
+**Small open tools**
+- [typedout](https://github.com/ferinazumaDEV/typedout) — reliable structured output from OpenAI and Anthropic, with a provider interface for others.
+- [politeclient](https://github.com/ferinazumaDEV/politeclient) — a polite HTTP client for Python: retries with backoff, per-host rate limiting, caching, pagination.
+- [webhook-replay](https://github.com/ferinazumaDEV/webhook-replay) — capture a webhook once, then replay it at your local app as many times as you need.
+- [scaffld](https://github.com/ferinazumaDEV/scaffld) — scaffold fully-wired Python projects from templates, with a TUI.
+- [framesig](https://github.com/ferinazumaDEV/framesig) — find on-screen events in video by pixel signature; no ML.
+- [notebooklm-kb-system](https://github.com/ferinazumaDEV/notebooklm-kb-system) — a token-efficient second brain for AI agents on top of NotebookLM.
+
+Hub and writing: **[zentimes.es](https://zentimes.es)**.
 <!-- ecosystem:end -->

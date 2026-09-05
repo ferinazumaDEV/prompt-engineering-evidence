@@ -18,6 +18,26 @@ its date.
 
 ### Added
 
+- **[`CLAIMS.md`](CLAIMS.md)** — the maturity vocabulary (`established` / `mixed` /
+  `experimental` / `folklore` + `reproducible`), with the ledger's `solid` as an alias of
+  `established`, and a register of every claim the prose makes without a ledger row.
+- **GEO ID Card** in the README, and the fields `about.jsonld` was missing as the source of
+  truth: abstract, version, dates, citation list, maturity counts. `llms.txt` now names the
+  version, date, licences, changelog and both sibling GEO repos.
+- **Sources.** Meincke et al. 2025 (Prompting Science Reports 2 and 3), Bsharat et al. 2023,
+  Debenedetti et al. 2025 (CaMeL), He and Thinking Machines Lab 2025, the Anthropic and OpenAI
+  pages behind the vendor claims, and Simon Willison's three primary posts. Five ledger rows
+  that pointed at unlinked strings now point at these; no grade changed.
+
+### Changed
+
+- `reproducible: no` is quoted in the ledger so YAML loaders keep it a string.
+- Figures carry their limitation in the sentence (Anthropic's 30 percent, Lu et al.'s order effect).
+- `docs/08` no longer grades techniques that have no ledger row; those cells read `experimental`.
+- The contribution template uses the ledger's schema and passes the validator.
+- Ecosystem footers and `ECOSYSTEM.md` carry the cluster's canonical block.
+- `experiments/README.md` marks the `llm-measured/` tier as planned; no re-run job ships yet.
+
 - **DOI.** `v0.1.0` is archived on Zenodo, so the ledger is citable by a persistent
   identifier instead of a repository URL. The concept DOI
   [`10.5281/zenodo.22307826`](https://doi.org/10.5281/zenodo.22307826) always resolves to the latest release. Recorded in the

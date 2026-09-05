@@ -1,14 +1,16 @@
 # Template for a new entry in ../data/techniques.yml
 # Copy this block, fill EVERY field, and open a PR.
 # Hard rule (see ../CONTRIBUTING.md): no grade + no primary source = no merge.
+# CI requires: id, question, grade, primary_sources (non-empty list), last_verified (ISO date).
 
-- id: my-technique-slug            # kebab-case, unique across the ledger
-  name: "Human-readable name"
-  grade: mixed                     # one of: solid | mixed | folklore
-  claim: "One sentence: what this technique is supposed to do."
-  when_to_use: "The situation where it actually helps."
-  grade_rationale: "Why this grade — what the evidence does and does not show."
-  primary_sources:                 # at least one; arXiv / DOI / official docs
-    - "https://arxiv.org/abs/XXXX.XXXXX"
-  last_verified: "YYYY-MM-DD"      # when you last checked the sources still hold
-  see: []                          # optional: relative links into ../docs/
+- id: my-technique-slug                # kebab-case, unique across the ledger
+  question: "Does X actually ...?"     # the question a reader asks; answered by grade + effect
+  grade: mixed                         # solid | mixed | folklore
+  scope: "Where it applies and where it doesn't — a technique with no scope is a red flag."
+  effect: "What the evidence shows, with the number's limitation in the same sentence."
+  when_use: ["the situation where it actually helps"]
+  when_not: ["the situation where it does not, or costs more than it gives"]
+  primary_sources: ["Author et al. YEAR - arXiv:XXXX.XXXXX"]   # at least one; arXiv / DOI / official vendor docs
+  reproducible: "paper-only"           # yes-offline | yes-llm | paper-only | "no"  (always a quoted string)
+  last_verified: 2026-01-01            # ISO date: when you last checked the sources still hold
+  see: docs/08-technique-selector.md   # optional: where the technique is discussed

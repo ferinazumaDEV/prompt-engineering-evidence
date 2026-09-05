@@ -11,7 +11,7 @@ For any technique or claim you add or change:
 3. **State the scope:** where it applies and where it doesn't. A technique with no scope is a red flag.
 4. **Date it:** `last_verified` (ISO date). Model-measured numbers are **snapshots**, not eternal truths — always *"as of DATE on MODEL"*.
 
-Entries in [`data/techniques.yml`](data/techniques.yml) that lack `grade` + `primary_sources` + `last_verified` **fail CI** and cannot be merged.
+Entries in [`data/techniques.yml`](data/techniques.yml) that lack any of `id`, `question`, `grade`, `primary_sources` (a non-empty list) or `last_verified` (an ISO date) **fail CI** and cannot be merged. Start from [`templates/technique-entry.template.yml`](templates/technique-entry.template.yml), which carries every required field.
 
 ## Challenge a grade
 

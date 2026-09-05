@@ -13,13 +13,19 @@
       ]
     },
     {
-      "@type": "Dataset",
       "@id": "https://github.com/ferinazumaDEV/prompt-engineering-evidence#work",
+      "@type": "Dataset",
       "name": "Evidence-Based Prompt Engineering",
       "headline": "A prompt-engineering reference where every technique is graded and sourced",
+      "description": "A prompt-engineering reference in which every technique is graded solid, mixed or folklore, and every claim names a primary source. The evidence lives in a machine-readable ledger. This first release grades eight techniques (three solid, two mixed, three folklore) and ships one offline reproducible experiment; it is a sourced starting corpus, not an exhaustive survey. Effects that can only be measured with live model calls are recorded as dated snapshots against a named model, never as standing truths.",
+      "abstract": "A prompt-engineering reference in which every technique is graded solid, mixed or folklore, and every claim names a primary source. The evidence lives in a machine-readable ledger. This first release grades eight techniques (three solid, two mixed, three folklore) and ships one offline reproducible experiment; it is a sourced starting corpus, not an exhaustive survey. Effects that can only be measured with live model calls are recorded as dated snapshots against a named model, never as standing truths.",
       "about": "Prompt engineering",
-      "author": { "@id": "https://zentimes.es/#ferinazumaDEV" },
-      "creator": { "@id": "https://zentimes.es/#ferinazumaDEV" },
+      "author": {
+        "@id": "https://zentimes.es/#ferinazumaDEV"
+      },
+      "creator": {
+        "@id": "https://zentimes.es/#ferinazumaDEV"
+      },
       "license": [
         "https://creativecommons.org/licenses/by-sa/4.0/",
         "https://opensource.org/licenses/MIT"
@@ -27,10 +33,54 @@
       "codeRepository": "https://github.com/ferinazumaDEV/prompt-engineering-evidence",
       "url": "https://github.com/ferinazumaDEV/prompt-engineering-evidence",
       "inLanguage": "en",
-      "keywords": ["prompt engineering", "few-shot", "chain-of-thought", "LLM evaluation", "prompt injection"],
+      "keywords": [
+        "prompt engineering",
+        "large language models",
+        "evidence-based",
+        "prompt injection",
+        "LLM evaluation"
+      ],
       "isBasedOn": "https://github.com/ferinazumaDEV/generative-engine-optimization-handbook",
       "identifier": "https://doi.org/10.5281/zenodo.22307826",
-      "sameAs": ["https://doi.org/10.5281/zenodo.22307826"]
+      "sameAs": [
+        "https://doi.org/10.5281/zenodo.22307826"
+      ],
+      "version": "0.1.0",
+      "datePublished": "2026-09-04",
+      "dateModified": "2026-09-04",
+      "citation": [
+        "https://arxiv.org/abs/2201.11903",
+        "https://arxiv.org/abs/2409.12183",
+        "https://arxiv.org/abs/2203.11171",
+        "https://arxiv.org/abs/2005.14165",
+        "https://arxiv.org/abs/2104.08786",
+        "https://arxiv.org/abs/2307.03172",
+        "https://arxiv.org/abs/2408.02442",
+        "https://arxiv.org/abs/2309.03409",
+        "https://arxiv.org/abs/2311.10054",
+        "https://arxiv.org/abs/2302.12173",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://simonwillison.net/tags/prompt-injection/"
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "maturity",
+          "value": "mixed",
+          "description": "8 techniques: 3 established (ledger alias: solid), 2 mixed, 3 folklore; see CLAIMS.md"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "reproducible",
+          "value": "partial",
+          "description": "1 yes-offline (experiments/offline/token-cost), 2 yes-llm, 2 paper-only, 3 no"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "maturityAlias",
+          "value": "solid == established"
+        }
+      ]
     }
   ]
 }

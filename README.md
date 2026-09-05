@@ -57,7 +57,7 @@ The same metadata lives in [`CITATION.cff`](CITATION.cff), which GitHub renders 
 
 ## License
 
-Prose is **CC BY-SA 4.0** ([`LICENSE`](LICENSE)); the ledger (`data/`) and templates are **CC BY 4.0**; code (`experiments/`, scripts, `.github/`) is **MIT** ([`LICENSES/MIT.txt`](LICENSES/MIT.txt)). In short: build on the code freely, credit the words.
+Prose is **CC BY-SA 4.0** ([`LICENSE`](LICENSE)); the ledger (`data/`) and templates are **CC BY 4.0** ([`LICENSES/CC-BY-4.0.txt`](LICENSES/CC-BY-4.0.txt)); code (`experiments/`, scripts, `.github/`) is **MIT** ([`LICENSES/MIT.txt`](LICENSES/MIT.txt)). In short: build on the code freely, credit the words.
 
 ---
 <!-- ecosystem:start -->

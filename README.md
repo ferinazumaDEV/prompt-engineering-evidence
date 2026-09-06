@@ -13,8 +13,8 @@
 | **Sources** | [`SOURCES.md`](SOURCES.md) |
 | **Cite** | [`CITATION.cff`](CITATION.cff) · DOI [10.5281/zenodo.22307826](https://doi.org/10.5281/zenodo.22307826) |
 | **Canonical** | https://github.com/ferinazumaDEV/prompt-engineering-evidence |
-| **Updated** | 2026-09-04 |
-| **Version** | 0.1.0 (Release v0.1.0) |
+| **Updated** | 2026-09-06 |
+| **Version** | 0.1.1 (Release v0.1.1) |
 | **Maturity** | mixed overall — 3 established (ledger alias `solid`) · 2 mixed · 3 folklore; reproducible: partial — 1 yes-offline · 2 yes-llm · 2 paper-only · 3 no. See [`CLAIMS.md`](CLAIMS.md). |
 | **License** | CC BY-SA 4.0 prose · CC BY 4.0 data/templates · MIT code |
 

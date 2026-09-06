@@ -16,6 +16,14 @@ its date.
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-09-06
+
+The archived copy had fallen behind. `v0.1.0` was tagged on 4 September and six
+commits landed after it, including the CC BY 4.0 licence text the README had
+been promising but not shipping, the complete `about.jsonld`, `CLAIMS.md`, and
+the sourcing of every ledger claim. A reader who took the archived deposit got a
+README pointing at a licence file that was not in it.
+
 ### Added
 
 - **[`CLAIMS.md`](CLAIMS.md)** — the maturity vocabulary (`established` / `mixed` /

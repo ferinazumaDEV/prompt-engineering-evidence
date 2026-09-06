@@ -44,5 +44,5 @@ keywords:
   - LLM evaluation
 # version and date-released must be bumped together with the git tag; the tag is the
 # source of truth, these two are the copy CFF requires.
-version: "0.1.0"
-date-released: "2026-09-04"
+version: "0.1.1"
+date-released: "2026-09-06"

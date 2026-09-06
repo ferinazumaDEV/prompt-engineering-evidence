@@ -1,6 +1,6 @@
 # Evidence-Based Prompt Engineering
 
-> A prompt-engineering reference where every technique is graded solid / mixed / folklore, every claim carries a primary source, and model-measured numbers are dated snapshots. By Fernando Aporta Franco (ferinazumaDEV). Version 0.1.0 · 2026-09-04 · CC BY-SA 4.0 prose, CC BY 4.0 data and templates, MIT code.
+> A prompt-engineering reference where every technique is graded solid / mixed / folklore, every claim carries a primary source, and model-measured numbers are dated snapshots. By Fernando Aporta Franco (ferinazumaDEV). Version 0.1.1 · 2026-09-06 · CC BY-SA 4.0 prose, CC BY 4.0 data and templates, MIT code.
 
 ## Core
 - [Evidence ledger (techniques)](data/techniques.yml): graded, sourced table of techniques — the machine-readable heart of the repo.
@@ -15,7 +15,7 @@
 - [Sources](SOURCES.md): primary papers with arXiv/DOI.
 - [Changelog](CHANGELOG.md): versioned history — every grade change and the evidence that moved it.
 - [About (machine-readable)](about.jsonld): schema.org JSON-LD — source of truth for name, author, version, DOI, dateModified, maturity.
-- [How to cite](CITATION.cff): Aporta Franco, Fernando. Evidence-Based Prompt Engineering, v0.1.0 (2026-09-04). DOI 10.5281/zenodo.22307826.
+- [How to cite](CITATION.cff): Aporta Franco, Fernando. Evidence-Based Prompt Engineering, v0.1.1 (2026-09-06). DOI 10.5281/zenodo.22307826.
 
 ## Related
 - [The GEO Handbook](https://github.com/ferinazumaDEV/generative-engine-optimization-handbook): the output side — getting content cited by AI.

@@ -1,5 +1,7 @@
 # Evidence-Based Prompt Engineering
 
+[English](README.md) · **Español**: [README.es.md](README.es.md)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22307826.svg)](https://doi.org/10.5281/zenodo.22307826)
 
 ## GEO ID Card

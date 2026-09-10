@@ -35,7 +35,7 @@ Primary sources behind the graded ledger. Papers are linked by arXiv ID; vendor 
 - **The lethal trifecta (2025)** — Simon Willison, *The lethal trifecta for AI agents* — [simonwillison.net](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
 - **Prompt injection, ongoing coverage** — Simon Willison, [simonwillison.net/tags/prompt-injection](https://simonwillison.net/tags/prompt-injection/)
 - **CaMeL (capability-based defence)** — Debenedetti et al. 2025, *Defeating Prompt Injections by Design* — [arXiv:2503.18813](https://arxiv.org/abs/2503.18813)
-- **OWASP Top 10 for LLM Applications** — LLM01: Prompt Injection — [owasp.org](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- **OWASP Top 10 for LLM Applications** — LLM01: Prompt Injection — [genai.owasp.org](https://genai.owasp.org/llm-top-10/)
 
 ## Vendor documentation
 

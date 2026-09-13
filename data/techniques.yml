@@ -16,6 +16,7 @@
   when_not: ["single-inference lookup", "reasoning models (o-series) — marginal or no gain, more tokens (Meincke et al. 2025); OpenAI says it can sometimes hinder"]
   primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183", "Meincke et al. 2025 (Prompting Science Report 2) - arXiv:2506.07142", "OpenAI, Reasoning best practices: https://developers.openai.com/api/docs/guides/reasoning-best-practices"]
   reproducible: yes-llm
+  evidence_target: quality
   last_verified: 2026-09-04
   see: docs/08-technique-selector.md
 
@@ -28,6 +29,7 @@
   when_not: ["when a clear instruction + schema already works (examples cost tokens)"]
   primary_sources: ["Brown et al. 2020 - arXiv:2005.14165", "Lu et al. 2021 (order sensitivity) - arXiv:2104.08786"]
   reproducible: yes-offline
+  evidence_target: cost
   last_verified: 2026-08-27
   see: docs/08-technique-selector.md
 
@@ -51,6 +53,7 @@
   when_not: ["open-ended generation", "cost/latency-sensitive paths"]
   primary_sources: ["Wang et al. 2022 (Self-Consistency) - arXiv:2203.11171"]
   reproducible: yes-llm
+  evidence_target: quality
   last_verified: 2026-08-27
   see: docs/08-technique-selector.md
 

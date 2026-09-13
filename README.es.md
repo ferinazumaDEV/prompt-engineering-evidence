@@ -1,4 +1,4 @@
-<!-- synced-from: 755876f437a6eac2450c74c67c9c5e3837584475 -->
+<!-- synced-from: 573020a64dae6b9d2f48181c1084efecfb9b5a07 -->
 # Evidence-Based Prompt Engineering
 
 **English**: [README.md](README.md) · [Español](README.es.md)
@@ -16,8 +16,8 @@
 | **Fuentes** | [`SOURCES.md`](SOURCES.md) |
 | **Citar** | [`CITATION.cff`](CITATION.cff) · DOI [10.5281/zenodo.22307826](https://doi.org/10.5281/zenodo.22307826) |
 | **Canónica** | https://github.com/ferinazumaDEV/prompt-engineering-evidence |
-| **Actualizado** | 2026-09-06 |
-| **Versión** | 0.1.1 (Release v0.1.1) |
+| **Actualizado** | 2026-09-13 |
+| **Versión** | 0.1.2 (Release v0.1.2) |
 | **Madurez** | mixta en conjunto — 3 establecidas (alias `solid` en el registro) · 2 mixtas · 3 folclore; reproducible: parcial — 1 sí-offline · 2 sí-con-LLM · 2 solo-paper · 3 no. Ver [`CLAIMS.md`](CLAIMS.md). |
 | **Licencia** | CC BY-SA 4.0 la prosa · CC BY 4.0 los datos y plantillas · MIT el código |
 

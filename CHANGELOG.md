@@ -16,6 +16,34 @@ its date.
 
 ## [Unreleased]
 
+## [0.1.2] — 2026-09-13
+
+The archived copy had fallen behind again: seven commits landed after `v0.1.1`,
+none of them a change to what the ledger says, all of them changes to how a
+reader can trust it.
+
+### Added
+
+- **`scripts/validate-ledger.py`, run by CI on every push and pull request
+  (`ledger-validate.yml`).** Every ledger entry must have a unique id, at least
+  one source that resolves to an arXiv id, a DOI or a URL, no date in the future,
+  a `see` target that exists, a `reproducible` value from the documented
+  vocabulary, and — for every `yes-*` entry — an `evidence_target` saying what
+  the reproduction measures (quality or cost). The three experiments carry it:
+  chain-of-thought and self-consistency target quality, few-shot targets cost.
+  A ledger that CI cannot validate is a ledger nobody has read closely.
+- **`README.es.md`** — a Spanish edition of the README, with a language selector
+  at the top of both, and a check (`translations.yml`) that fails when the
+  English README changes and the Spanish one is not re-anchored to it. The
+  anchor is the content hash of the English file, so it survives squash merges.
+
+### Changed
+
+- The link check gives slow hosts 30 seconds and retries with a pause instead
+  of ignoring them: the Zenodo DOI is the most load-bearing link in a repository
+  whose point is citability, and a check that has quietly stopped looking at it
+  is worse than a slow one.
+
 ## [0.1.1] — 2026-09-06
 
 The archived copy had fallen behind. `v0.1.0` was tagged on 4 September and six

@@ -118,6 +118,14 @@ notes:
 curl -s -X POST "https://archive.softwareheritage.org/api/1/origin/save/git/url/https://github.com/ferinazumaDEV/prompt-engineering-evidence/"
 ```
 
+2026-09-23: the latest full visit of this origin on Software Heritage is dated 2026-09-14, read from the origin visit
+API below with a plain `curl` User-Agent (a browser User-Agent is served a bot-challenge page instead of JSON). When a
+newer tag is expected to be archived, the save request above is the step; the visit date is the check that it worked.
+
+```
+curl -s -A curl/8.5.0 "https://archive.softwareheritage.org/api/1/origin/https://github.com/ferinazumaDEV/prompt-engineering-evidence/visit/latest/?require_snapshot=true"
+```
+
 ## Never
 
 - **Never delete a release.** Deleting one is what left Zenodo returning `409` with no DOI. It is not undoable by

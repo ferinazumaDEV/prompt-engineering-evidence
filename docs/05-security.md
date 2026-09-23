@@ -49,6 +49,15 @@ Injection turns (2) into control; (1) is the loot; (3) is the way out. **Design 
 - [ ] Do irreversible actions require **human confirmation**?
 - [ ] Are you logging inputs/outputs so an injection is **auditable** after the fact?
 
+## Dated notes
+
+### 2026-09-23 — how much a hidden injection moves a 2025–2026 grader (lab technical report)
+
+- Across roughly 40,000 grading trials, hidden injections in the graded document produced a statistically significant but small average increase of about 2.6 percentage points, pooled across Claude Opus 4.5, Gemini 3 Pro and GPT-5.2 (Source: Wanjura, Meincke et al. 2026, Prompting Science Report 5, Wharton Generative AI Labs technical report — industry-adjacent lab report, not peer-reviewed)(https://gail.wharton.upenn.edu/research-and-insights/hidden-prompt-injections/).
+- The pooled average hides the spread: Claude Opus 4.5 showed near-zero effects; Gemini 3 Pro exceeded 10 percentage points for beginning and middle placements on the longer-paper corpus; GPT-4o mini, the less capable comparison model, inflated by nearly 20 percentage points on average (same source).
+- Placement matters: beginning had the largest pooled effect, then middle, then end, all small; and even when models resisted, they "almost never verbalized the detection of injection attempts" (same source).
+- What this changes here: nothing in the verdict, one thing in the numbers. Prompt-level defences remain folklore; what is new is a dated measurement that frontier reasoning models are *less* movable than a 2024 small model, not immune, and that the detection you would want to log is not something the model volunteers. The report has an SSRN working-paper copy (abstract id 6510758) that answers 403 to command-line fetches; no arXiv version was found.
+
 ## Related
 
 - Threat catalog: **OWASP Top 10 for LLM Applications** — LLM01 is Prompt Injection.

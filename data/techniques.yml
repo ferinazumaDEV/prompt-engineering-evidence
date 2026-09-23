@@ -13,11 +13,11 @@
   scope: "math / logic / symbolic multi-step tasks; NOT knowledge/reading; largely redundant on reasoning models"
   effect: "Large gains on GSM8K-style arithmetic; roughly none on tasks that don't need intermediate steps"
   when_use: ["multi-step arithmetic", "code with state", "constraint satisfaction"]
-  when_not: ["single-inference lookup", "reasoning models (o-series) — marginal or no gain, more tokens (Meincke et al. 2025); OpenAI says it can sometimes hinder"]
-  primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183", "Meincke et al. 2025 (Prompting Science Report 2) - arXiv:2506.07142", "OpenAI, Reasoning best practices: https://developers.openai.com/api/docs/guides/reasoning-best-practices"]
+  when_not: ["single-inference lookup", "reasoning models (o-series) — marginal or no gain, more tokens (Meincke et al. 2025); OpenAI says it can sometimes hinder", "2026-09-23: reasoning models with a thinking control — three vendors now point at the control, not the prompt. OpenAI's page (re-read today) still names only o3, o4-mini and GPT-4.1-class models; Anthropic says to consider removing 'think carefully before answering' instructions for Claude Opus 5.5, where thinking is always on and effort is the main control; Google says to try thinking_level 'high' on Gemini 3 instead of chain-of-thought prompting", "2026-09-23: on Claude Opus 5, verification instructions carried over from prompts tuned for earlier models can cause over-verification, adding tokens and latency (Anthropic)"]
+  primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183", "Meincke et al. 2025 (Prompting Science Report 2) - arXiv:2506.07142", "OpenAI, Reasoning best practices: https://developers.openai.com/api/docs/guides/reasoning-best-practices", "Anthropic, Prompting Claude Opus 5.5 — 'effort is the main control' (added 2026-09-23): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5", "Anthropic, Claude prompting best practices — Claude Opus 5 over-verification note (added 2026-09-23): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices", "Google, Gemini 3 developer guide — thinking_level replaces CoT prompting (added 2026-09-23): https://ai.google.dev/gemini-api/docs/gemini-3"]
   reproducible: yes-llm
   evidence_target: quality
-  last_verified: 2026-09-04
+  last_verified: 2026-09-23
   see: docs/08-technique-selector.md
 
 - id: few-shot-examples
@@ -26,11 +26,11 @@
   scope: "format/style conditioning and classification; example order and selection matter a lot"
   effect: "Reliable for shaping output format; on GPT-2/GPT-3-class models (2021) example ORDER alone swung accuracy from near-SOTA to chance (Lu et al.); magnitude on current instruction-tuned models not re-measured here"
   when_use: ["enforce an output format", "classification with fuzzy labels"]
-  when_not: ["when a clear instruction + schema already works (examples cost tokens)"]
-  primary_sources: ["Brown et al. 2020 - arXiv:2005.14165", "Lu et al. 2021 (order sensitivity) - arXiv:2104.08786"]
+  when_not: ["when a clear instruction + schema already works (examples cost tokens)", "2026-09-23: vendor guidance diverges by model family, so scope decides — OpenAI (reasoning models): 'try to write prompts without examples first'; Google (Gemini): 'always include few-shot examples'; Anthropic: 'Include 3–5 examples for best results'"]
+  primary_sources: ["Brown et al. 2020 - arXiv:2005.14165", "Lu et al. 2021 (order sensitivity) - arXiv:2104.08786", "OpenAI, Reasoning best practices — zero-shot first on reasoning models (added 2026-09-23): https://developers.openai.com/api/docs/guides/reasoning-best-practices", "Google, Prompt design strategies — 'always include few-shot examples' (added 2026-09-23): https://ai.google.dev/gemini-api/docs/prompting-strategies", "Anthropic, Claude prompting best practices — 'Include 3–5 examples' (added 2026-09-23): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"]
   reproducible: yes-offline
   evidence_target: cost
-  last_verified: 2026-08-27
+  last_verified: 2026-09-23
   see: docs/08-technique-selector.md
 
 - id: data-before-instruction
@@ -39,9 +39,10 @@
   scope: "long multi-document inputs (~20k+ tokens)"
   effect: "Put long data FIRST and the query LAST; improves quality (Anthropic reports up to 30 percent in its own tests, on complex multi-document inputs). Relates to 'lost in the middle'."
   when_use: ["RAG over many documents", "summarizing/QA over long context"]
-  primary_sources: ["Liu et al. 2023 (Lost in the Middle) - arXiv:2307.03172", "Anthropic, Claude prompting best practices — Long context prompting: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting"]
+  when_not: ["2026-09-23: assuming the middle is lost uniformly — Veseli et al. 2025 find the lost-in-the-middle effect strongest when inputs occupy up to about 50 percent of the context window; beyond that the primacy bias weakens while the recency bias stays relatively stable. 'Query last' is consistent with a stable recency bias; the mechanism cited from Liu et al. 2023 does not hold uniformly at high context utilisation"]
+  primary_sources: ["Liu et al. 2023 (Lost in the Middle) - arXiv:2307.03172", "Anthropic, Claude prompting best practices — Long context prompting: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting", "Google, Prompt design strategies — 'supply all the context first. Place your specific instructions or questions at the very end of the prompt' (added 2026-09-23): https://ai.google.dev/gemini-api/docs/prompting-strategies", "Veseli et al. 2025 (Positional Biases Shift as Inputs Approach Context Window Limits) - arXiv:2508.07479"]
   reproducible: paper-only
-  last_verified: 2026-09-04
+  last_verified: 2026-09-23
   see: docs/08-technique-selector.md
 
 - id: self-consistency
@@ -50,11 +51,11 @@
   scope: "reasoning tasks with a checkable/aggregatable answer; costs N times more tokens"
   effect: "Sample several CoT paths, take the majority answer; consistent accuracy gains on reasoning benchmarks"
   when_use: ["high-stakes reasoning where extra cost is acceptable"]
-  when_not: ["open-ended generation", "cost/latency-sensitive paths"]
-  primary_sources: ["Wang et al. 2022 (Self-Consistency) - arXiv:2203.11171"]
+  when_not: ["open-ended generation", "cost/latency-sensitive paths", "2026-09-23: treating the vote as self-correcting — Cai et al. 2026 (ARBITER) find sampled trajectories concentrate into a few 'reasoning basins', so the majority vote selects the most stable basin rather than the most accurate one and produces wrong-majority failures where the correct answer is present but outvoted; measured on Qwen3-4B and Llama-3.1-8B, not on frontier snapshots"]
+  primary_sources: ["Wang et al. 2022 (Self-Consistency) - arXiv:2203.11171", "Cai et al. 2026 (ARBITER: reasoning basins and majority-vote failures) - arXiv:2605.26172"]
   reproducible: yes-llm
   evidence_target: quality
-  last_verified: 2026-08-27
+  last_verified: 2026-09-23
   see: docs/08-technique-selector.md
 
 - id: take-a-deep-breath
@@ -70,7 +71,7 @@
   question: "Does temperature 0 make the model deterministic?"
   grade: folklore
   scope: "none — temp 0 reduces but does not guarantee determinism (batching, MoE routing, hardware nondeterminism remain)"
-  primary_sources: ["Anthropic Messages API reference (temperature): https://platform.claude.com/docs/en/api/messages — 'even with temperature of 0.0, the results will not be fully deterministic'", "OpenAI Cookbook, Reproducible outputs with the seed parameter — documents that determinism is 'not guaranteed' even with seed: https://developers.openai.com/cookbook/examples/reproducible_outputs_with_the_seed_parameter", "He, H. and Thinking Machines Lab (2025), Defeating Nondeterminism in LLM Inference (batch invariance): https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/"]
+  primary_sources: ["Anthropic Messages API reference (temperature): https://platform.claude.com/docs/en/api/messages — 'even with temperature of 0.0, the results will not be fully deterministic'", "OpenAI Cookbook, Reproducible outputs with the seed parameter — documents that determinism is 'not guaranteed' even with seed: https://developers.openai.com/cookbook/examples/reproducible_outputs_with_the_seed_parameter", "He, H. and Thinking Machines Lab (2025), Defeating Nondeterminism in LLM Inference (batch invariance): https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/", "Google, Gemini 3 developer guide — 'we strongly recommend keeping the temperature parameter at its default value of 1.0' for all Gemini 3 models (added 2026-09-23): https://ai.google.dev/gemini-api/docs/gemini-3"]
   reproducible: "no"
   last_verified: 2026-09-04
   see: FOLKLORE.md#temperature-zero
@@ -89,7 +90,7 @@
   grade: mixed
   scope: "instruction-following; the real issue is under-specification, not the model 'ignoring negatives'"
   effect: "Stating the desired behavior positively tends to generalize better than a list of prohibitions"
-  primary_sources: ["Anthropic, Claude prompting best practices — Be clear and direct ('tell Claude what to do instead of what not to do'): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct", "OpenAI Help Center, Best practices for prompt engineering with the OpenAI API (rule: 'Instead of just saying what not to do, say what to do instead'): https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api — needs-verification (returns 403 to curl)"]
+  primary_sources: ["Anthropic, Claude prompting best practices — Be clear and direct ('tell Claude what to do instead of what not to do'): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct", "OpenAI Help Center, Best practices for prompt engineering with the OpenAI API (rule: 'Instead of just saying what not to do, say what to do instead'): https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api — needs-verification (returns 403 to curl)", "OpenAI Help Center, same article, verified copy — Internet Archive capture of 2026-09-15 (page header 'Updated: last month'), opened 2026-09-23 and rule 7 'Instead of just saying what not to do, say what to do instead' re-read: https://web.archive.org/web/20260915104022id_/https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api"]
   reproducible: "no"
-  last_verified: 2026-09-04
+  last_verified: 2026-09-23
   see: docs/08-technique-selector.md

@@ -16,6 +16,36 @@ its date.
 
 ## [Unreleased]
 
+Dated 2026-09-23. No grade changed. No ledger row was added: the counts archived with 0.1.2 stand, and
+the two candidates for a row are recorded in `CLAIMS.md` and the weekly log instead.
+
+### Added
+
+- `updates/2026-W39.md` — the first weekly log the `updates/` cadence promised; it also records that
+  weeks W35–W38 were never logged.
+- `FOLKLORE.md` — a tone/politeness entry (`#politeness`, verdict `mixed`) on four 2025–2026 preprints,
+  plus dated updates under role prompting (two new primary sources) and temperature zero (Google's
+  Gemini 3 guidance to keep temperature at 1.0).
+- `CLAIMS.md` — the tone/politeness claim in the register of claims outside the ledger; two more sources
+  on the role-prompting claim.
+- `SOURCES.md` — a Google block under vendor documentation, a *Tone and politeness* section, and
+  Prompting Science Reports 1, 4 and 5, Xiao et al. 2026, Veseli et al. 2025 and Cai et al. 2026 (ARBITER).
+- `docs/05-security.md` and `docs/08-technique-selector.md` — a *Dated notes* section each: measured
+  injection susceptibility of 2025–2026 graders; thinking controls before chain-of-thought prompting on
+  reasoning models; vendor divergence on few-shot; a majority-vote failure mode; positional bias at high
+  context utilisation.
+- `RELEASING.md` — the Software Heritage visit date as the check that an archive request worked.
+
+### Changed
+
+- `data/techniques.yml` — `last_verified` moved to 2026-09-23 on `chain-of-thought`, `few-shot-examples`,
+  `data-before-instruction`, `self-consistency` and `positive-over-negative-instructions`, each after every
+  primary source of the row was re-opened; dated `when_not` bullets and new primary sources on those rows
+  (Anthropic Opus 5.5 guide, Google Gemini docs, Veseli et al. 2025, Cai et al. 2026, the Internet Archive
+  copy of the OpenAI help-center article). `temperature-zero-determinism` gains Google's Gemini 3 source
+  but keeps its date: the Anthropic Messages API sentence could not be re-read from the fetched page.
+- README *Updated* row (both languages) and `about.jsonld` `dateModified` moved to 2026-09-23.
+
 ## [0.1.2] — 2026-09-13
 
 The archived copy had fallen behind again: seven commits landed after `v0.1.1`,

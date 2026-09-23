@@ -42,12 +42,15 @@ These appear in the prose but have no ledger row. A claim with no primary source
 | Structured output / tool-calling is reliable for output *validity* | [`docs/08`](docs/08-technique-selector.md) | experimental | none cited yet |
 | Explaining the *why* of a rule works better than a longer list of "don't" rules | [`docs/08`](docs/08-technique-selector.md) | experimental | none cited yet |
 | Running an eval on your own task is the meta-technique | [`docs/08`](docs/08-technique-selector.md) | experimental | none cited yet — a methodological stance, not a measured effect |
-| Role/persona prompts shape style but do not improve accuracy on objective tasks | [`FOLKLORE.md`](FOLKLORE.md#role-prompting) | folklore (for accuracy; style effects are real) | Zheng et al. 2024 — [arXiv:2311.10054](https://arxiv.org/abs/2311.10054) |
+| Role/persona prompts shape style but do not improve accuracy on objective tasks | [`FOLKLORE.md`](FOLKLORE.md#role-prompting) | folklore (for accuracy; style effects are real) | Zheng et al. 2024 — [arXiv:2311.10054](https://arxiv.org/abs/2311.10054); added 2026-09-23: Basil et al. 2025 — [arXiv:2512.05858](https://arxiv.org/abs/2512.05858), Xiao et al. 2026 — [arXiv:2605.29420](https://arxiv.org/abs/2605.29420) |
+| Prompt tone (polite, neutral, rude) shifts accuracy, but the sign, size and significance depend on model, domain and language — added 2026-09-23 | [`FOLKLORE.md`](FOLKLORE.md#politeness) | mixed | Dobariya and Kumar 2025 — [arXiv:2510.04950](https://arxiv.org/abs/2510.04950); Cai et al. 2025 — [arXiv:2512.12812](https://arxiv.org/abs/2512.12812); Mehta et al. 2026 — [arXiv:2604.16275](https://arxiv.org/abs/2604.16275); Dobariya and Kumar 2026 — [arXiv:2605.29027](https://arxiv.org/abs/2605.29027) |
 | Forcing strict JSON output can cost reasoning quality | [`FOLKLORE.md`](FOLKLORE.md#json-reasoning) | mixed | Tam et al. 2024 — [arXiv:2408.02442](https://arxiv.org/abs/2408.02442) |
 | XML tags help because they disambiguate structure, not because of a special XML mode | [`FOLKLORE.md`](FOLKLORE.md#xml-magic) | mixed (delimiters help; XML-specific magic is folklore) | Anthropic, [Structure prompts with XML tags](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#structure-prompts-with-xml-tags) — vendor documentation; no independent measurement |
 | Prompt-level defences against prompt injection are not a control you can rely on | [`docs/05`](docs/05-security.md) | folklore | Greshake et al. 2023 — [arXiv:2302.12173](https://arxiv.org/abs/2302.12173); [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/), LLM01 |
 
 The three `FOLKLORE.md` claims have primary sources but no ledger row; adding rows changes the archived counts and is a maintainer decision. Until then they are not counted in the ledger totals above or in `about.jsonld`.
+
+2026-09-23: the tone/politeness claim joins this register on the same terms — four primary sources, no row. The candidates for a ledger row, pending that decision, are now role prompting (three sources) and tone/politeness (four sources); the decision is recorded either way in [`updates/2026-W39.md`](updates/2026-W39.md).
 
 ## Per-technique format
 

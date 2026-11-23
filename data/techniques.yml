@@ -17,7 +17,7 @@
   primary_sources: ["Wei et al. 2022 - arXiv:2201.11903", "Sprague et al. 2024 (To CoT or not to CoT) - arXiv:2409.12183", "Meincke et al. 2025 (Prompting Science Report 2) - arXiv:2506.07142", "OpenAI, Reasoning best practices: https://developers.openai.com/api/docs/guides/reasoning-best-practices", "Anthropic, Prompting Claude Opus 5.5 — 'effort is the main control' (added 2026-09-23): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5", "Anthropic, Claude prompting best practices — Claude Opus 5 over-verification note (added 2026-09-23): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices", "Google, Gemini 3 developer guide — thinking_level replaces CoT prompting (added 2026-09-23): https://ai.google.dev/gemini-api/docs/gemini-3"]
   reproducible: yes-llm
   evidence_target: quality
-  last_verified: 2026-09-23
+  last_verified: 2026-11-23
   see: docs/08-technique-selector.md
 
 - id: few-shot-examples
@@ -30,7 +30,7 @@
   primary_sources: ["Brown et al. 2020 - arXiv:2005.14165", "Lu et al. 2021 (order sensitivity) - arXiv:2104.08786", "OpenAI, Reasoning best practices — zero-shot first on reasoning models (added 2026-09-23): https://developers.openai.com/api/docs/guides/reasoning-best-practices", "Google, Prompt design strategies — 'always include few-shot examples' (added 2026-09-23): https://ai.google.dev/gemini-api/docs/prompting-strategies", "Anthropic, Claude prompting best practices — 'Include 3–5 examples' (added 2026-09-23): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"]
   reproducible: yes-offline
   evidence_target: cost
-  last_verified: 2026-09-23
+  last_verified: 2026-11-23
   see: docs/08-technique-selector.md
 
 - id: data-before-instruction
@@ -42,7 +42,7 @@
   when_not: ["2026-09-23: assuming the middle is lost uniformly — Veseli et al. 2025 find the lost-in-the-middle effect strongest when inputs occupy up to about 50 percent of the context window; beyond that the primacy bias weakens while the recency bias stays relatively stable. 'Query last' is consistent with a stable recency bias; the mechanism cited from Liu et al. 2023 does not hold uniformly at high context utilisation"]
   primary_sources: ["Liu et al. 2023 (Lost in the Middle) - arXiv:2307.03172", "Anthropic, Claude prompting best practices — Long context prompting: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting", "Google, Prompt design strategies — 'supply all the context first. Place your specific instructions or questions at the very end of the prompt' (added 2026-09-23): https://ai.google.dev/gemini-api/docs/prompting-strategies", "Veseli et al. 2025 (Positional Biases Shift as Inputs Approach Context Window Limits) - arXiv:2508.07479"]
   reproducible: paper-only
-  last_verified: 2026-09-23
+  last_verified: 2026-11-23
   see: docs/08-technique-selector.md
 
 - id: self-consistency
@@ -55,7 +55,7 @@
   primary_sources: ["Wang et al. 2022 (Self-Consistency) - arXiv:2203.11171", "Cai et al. 2026 (ARBITER: reasoning basins and majority-vote failures) - arXiv:2605.26172"]
   reproducible: yes-llm
   evidence_target: quality
-  last_verified: 2026-09-23
+  last_verified: 2026-11-23
   see: docs/08-technique-selector.md
 
 - id: take-a-deep-breath
@@ -92,5 +92,5 @@
   effect: "Stating the desired behavior positively tends to generalize better than a list of prohibitions"
   primary_sources: ["Anthropic, Claude prompting best practices — Be clear and direct ('tell Claude what to do instead of what not to do'): https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct", "OpenAI Help Center, Best practices for prompt engineering with the OpenAI API (rule: 'Instead of just saying what not to do, say what to do instead'): https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api — needs-verification (returns 403 to curl)", "OpenAI Help Center, same article, verified copy — Internet Archive capture of 2026-09-15 (page header 'Updated: last month'), opened 2026-09-23 and rule 7 'Instead of just saying what not to do, say what to do instead' re-read: https://web.archive.org/web/20260915104022id_/https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api"]
   reproducible: "no"
-  last_verified: 2026-09-23
+  last_verified: 2026-11-23
   see: docs/08-technique-selector.md
